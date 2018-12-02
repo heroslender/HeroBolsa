@@ -1,0 +1,16 @@
+settings:
+  valor:
+    max: 100
+    min: 0
+  diferenca:
+    max: 20
+    min: -10
+  delay-atualizar: 10
+mensagem:
+  check-valor: '&eValor atual da bolsa: &7:bolsa:%'
+  comandos-atualizar-subiu: []
+  comandos-atualizar-desceu: []
+  anuncio-atualizar-subiu:
+    - "&eBolsa atualizada para &7:bolsa:% &2\u25b2 &a:diferenca:%!"
+  anuncio-atualizar-desceu:
+    - "&eBolsa atualizada para &7:bolsa:% &4\u25bc &c:diferenca:%!"

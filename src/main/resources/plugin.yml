@@ -1,0 +1,13 @@
+name: HeroBolsa
+version: ${project.version}
+main: com.heroslender.herobolsa.HeroBolsa
+depend: [HeroVender]
+authors: [heroslender]
+description: Addon de sistema de bolsa para o HeroVender
+website: heroslender.com
+
+commands:
+  bolsa:
+    aliases:
+      - herobolsa
+    usage: "§cUso correto: §7/<command> <reload/set>"
