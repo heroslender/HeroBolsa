@@ -6,7 +6,7 @@
 
     <groupId>com.heroslender</groupId>
     <artifactId>HeroBolsa</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>HeroBolsa</name>
@@ -82,7 +82,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>LATEST</version>
+            <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
 
@@ -90,7 +90,7 @@
         <dependency>
             <groupId>com.heroslender</groupId>
             <artifactId>HeroVender</artifactId>
-            <version>LATEST</version>
+            <version>0.3.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

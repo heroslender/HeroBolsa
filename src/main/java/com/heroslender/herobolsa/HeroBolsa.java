@@ -46,6 +46,8 @@ public final class HeroBolsa extends JavaPlugin {
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
             new PlaceholderApiHook().hook();
         }
+
+        new Metrics(this);
     }
 
     private void updateBolsa() {
@@ -64,12 +66,23 @@ public final class HeroBolsa extends JavaPlugin {
         oldValue = value;
         value += increaseValue;
 
-        MessageBuilder messageBuilder = new MessageBuilder();
+        val messageBuilder = new MessageBuilder();
         messageBuilder.withPlaceholder("bolsa", getValue());
         messageBuilder.withPlaceholder("bolsa-antiga", oldValue);
         messageBuilder.withPlaceholder("diferenca", increaseValue);
 
-        if (value > oldValue) {
+
+        runCommands(value > oldValue, messageBuilder);
+    }
+
+    private void runCommands(final boolean subiu, final MessageBuilder messageBuilder) {
+        // Executar comandos sync
+        if (!Bukkit.isPrimaryThread()) {
+            Bukkit.getScheduler().scheduleSyncDelayedTask(this, () -> runCommands(subiu, messageBuilder));
+            return;
+        }
+
+        if (subiu) {
             configuration.getAnuncioAtualizarSubiu().forEach(message -> Bukkit.broadcastMessage(messageBuilder.build(message)));
             configuration.getComandosAtualizarSubiu().forEach(message -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), messageBuilder.build(message)));
         } else {
