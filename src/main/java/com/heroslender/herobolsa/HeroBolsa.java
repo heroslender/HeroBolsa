@@ -72,6 +72,11 @@ public final class HeroBolsa extends JavaPlugin {
             }
         }
 
+        if (increaseValue == 0) {
+            updateBolsa();
+            return;
+        }
+
         oldValue = value;
         value += increaseValue;
 
