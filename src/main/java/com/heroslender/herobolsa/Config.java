@@ -21,6 +21,7 @@ public class Config {
     @Getter private final int min;
     @Getter private final int diffMax;
     @Getter private final int diffMin;
+    @Getter private final boolean forceLimit;
 
     @Getter private final int updateDelay;
 
@@ -33,6 +34,8 @@ public class Config {
             config.set("settings.diferenca.max", 20);
         if (!config.contains("settings.diferenca.min"))
             config.set("settings.diferenca.min", -10);
+        if (!config.contains("settings.forcar-limite"))
+            config.set("settings.forcar-limite", true);
 
         if (!config.contains("settings.delay-atualizar"))
             config.set("settings.delay-atualizar", 60);
@@ -53,6 +56,7 @@ public class Config {
         min = config.getInt("settings.valor.min", 0);
         diffMax = config.getInt("settings.diferenca.max", 20);
         diffMin = config.getInt("settings.diferenca.min", 10);
+        forceLimit = config.getBoolean("settings.forcar-limite", true);
 
         updateDelay = config.getInt("settings.delay-atualizar", 60) * 20;
 

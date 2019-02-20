@@ -53,15 +53,24 @@ public final class HeroBolsa extends JavaPlugin {
     private void updateBolsa() {
         var increse = value > oldValue;
 
-        if (increse && value > configuration.getMax())
+        if (increse && value >= configuration.getMax())
             increse = false;
-        else if (!increse && value < configuration.getMin()) {
+        else if (!increse && value <= configuration.getMin()) {
             increse = true;
         }
 
-        val increaseValue = increse ?
+        int increaseValue = increse ?
                 RANDOM.nextInt(configuration.getDiffMin(), configuration.getDiffMax()) :
                 RANDOM.nextInt(-configuration.getDiffMax(), -configuration.getDiffMin());
+
+        if (configuration.isForceLimit()) {
+            val newValue = value + increaseValue;
+            if (newValue > configuration.getMax()) {
+                increaseValue = configuration.getMax() - value;
+            } else if (newValue < configuration.getMin()) {
+                increaseValue = configuration.getMin() - value;
+            }
+        }
 
         oldValue = value;
         value += increaseValue;
