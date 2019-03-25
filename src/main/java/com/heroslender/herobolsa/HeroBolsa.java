@@ -1,6 +1,7 @@
 package com.heroslender.herobolsa;
 
 import com.heroslender.herobolsa.command.BolsaCommand;
+import com.heroslender.herobolsa.placeholders.MVdWPlaceholderApiHook;
 import com.heroslender.herobolsa.placeholders.PlaceholderApiHook;
 import com.heroslender.herovender.data.SellBonus;
 import com.heroslender.herovender.event.PlayerSellEvent;
@@ -45,6 +46,9 @@ public final class HeroBolsa extends JavaPlugin {
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
             new PlaceholderApiHook().hook();
+        }
+        if (Bukkit.getPluginManager().isPluginEnabled("MVdWPlaceholderAPI")){
+            new MVdWPlaceholderApiHook().hook();
         }
 
         new Metrics(this);
