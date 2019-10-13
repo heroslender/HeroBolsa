@@ -45,7 +45,7 @@ public final class HeroBolsa extends JavaPlugin {
         getCommand("bolsa").setExecutor(new BolsaCommand());
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
-            new PlaceholderApiHook().hook();
+            new PlaceholderApiHook().register();
         }
         if (Bukkit.getPluginManager().isPluginEnabled("MVdWPlaceholderAPI")){
             new MVdWPlaceholderApiHook().hook();
